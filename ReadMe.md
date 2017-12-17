@@ -20,5 +20,11 @@ For my theme, I really wanted to use a mixture of
 **insert links here**
 
 
+**suspend**
+for suspend and resume, the file is in /etc/sysctl.conf for thinkpad t420/30s, 
+Internet will cutoff, so you'll have to disconnect and reconnect the wifi.
+
+
+
 
 
