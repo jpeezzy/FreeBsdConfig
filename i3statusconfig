@@ -1,0 +1,86 @@
+
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+
+general{
+          output_format = "i3bar"
+          colors = true
+          color_good = "#00FF00"
+          color_degraded = "#E5871F"
+          color_bad = "#C83839"
+          interval = 5
+}
+
+
+order += "path_exists VPN"
+order += "ipv6"
+order += "ethernet ue0"
+order += "wireless wlan0"
+order += "ethernet em0"
+order += "disk /"
+order += "cpu_usage"
+order += "load"
+order += "cpu_temperature 0"
+order += "volume master"
+order += "battery 0"
+order += "tztime local"
+
+ethernet em0 {
+  format_up = "E: %ip"
+  format_down = "E: down"
+}
+
+
+wireless wlan0 {
+  #format_up = "%W: essid %ip"
+  format_up = "W: (%quality at %essid) %ip"
+  format_down = "W: down"
+  #format_down = "no WiFi"
+}
+
+tztime local {
+  format = "%Y-%m-%d %H:%M"
+}
+
+load {
+  format = "%1min"
+}
+
+
+cpu_usage {
+  format = "CPU %usage"
+}
+
+cpu_temperature 0 {
+  format = "%degrees°C"
+}
+
+volume master {
+  format = "VOL %volume"
+  format_muted = "MUTE"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+ipv6 {
+  format_up = "IPv6"
+  format_down = ""
+}
+path_exists VPN {
+  path = "/dev/tun0"
+  format_down = ""
+  format = "VPN"
+}
+
+disk "/" {
+        format = "%avail"
+}
+
